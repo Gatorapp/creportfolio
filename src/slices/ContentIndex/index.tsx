@@ -6,7 +6,6 @@ import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import ContentList from "./ContentList";
 import { createClient } from "@/prismicio";
-import { Clicker_Script } from "next/font/google";
 
 /**
  * Props for `ContentIndex`.
