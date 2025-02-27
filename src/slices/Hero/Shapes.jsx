@@ -62,7 +62,7 @@ function Geometries() {
 
   const materials = [
     new THREE.MeshNormalMaterial( {metalness: 0.5} ),
-    new THREE.MeshStandardMaterial({ color: 0xe67e22, roughness: 0.1, metalness: .5 }),
+    new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1, metalness: .5 }),
     new THREE.MeshStandardMaterial({ color: 0x2980b9, roughness: 0.4, metalness: .9 }),
     new THREE.MeshStandardMaterial({ color: 0x9b59b6, roughness: 0.1, metalness: .5 }),
     new THREE.MeshStandardMaterial({ color: 0x34495e, roughness: 0.1, metalness: .5 }),

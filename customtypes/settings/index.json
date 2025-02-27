@@ -19,13 +19,6 @@
           "label": "Nav Item",
           "repeat": true,
           "fields": {
-            "label": {
-              "type": "Text",
-              "config": {
-                "label": "Label",
-                "placeholder": ""
-              }
-            },
             "link": {
               "type": "Link",
               "config": {
@@ -37,15 +30,11 @@
                 "repeat": false
               }
             },
-            "linkedin_link": {
-              "type": "Link",
+            "label": {
+              "type": "Text",
               "config": {
-                "label": "Linkedin Link",
-                "placeholder": "",
-                "select": null,
-                "allowTargetBlank": true,
-                "allowText": true,
-                "repeat": false
+                "label": "Label",
+                "placeholder": ""
               }
             }
           }
@@ -69,10 +58,10 @@
           "placeholder": ""
         }
       },
-      "twitter": {
+      "github": {
         "type": "Link",
         "config": {
-          "label": "Twitter",
+          "label": "Github Link",
           "placeholder": "",
           "select": null,
           "allowTargetBlank": true,
@@ -80,10 +69,21 @@
           "repeat": false
         }
       },
-      "github": {
+      "linkedin": {
         "type": "Link",
         "config": {
-          "label": "Github Link",
+          "label": "LinkedIn",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
+      "twitter": {
+        "type": "Link",
+        "config": {
+          "label": "Twitter",
           "placeholder": "",
           "select": null,
           "allowTargetBlank": true,
