@@ -1,6 +1,6 @@
 "use client"
 
-import { asImageSrc, Content, RichTextField } from '@prismicio/client'
+import { asImageSrc, Content } from '@prismicio/client'
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 import { MdArrowOutward } from 'react-icons/md';
@@ -15,14 +15,15 @@ type ContentListProps = {
     items: Content.BlogPostDocument[] | Content.ProjectDocument[];
     contentType: Content.ContentIndexSlice["primary"]["content_type"];
     fallbackItemImage: Content.ContentIndexSlice["primary"]["fallback_item_image"];
-    view_more_text: RichTextField;
+    viewMoreText: Content.ContentIndexSlice["primary"]["view_more_text"];
+    view_more_text?: string;
 }
 
 export default function ContentList({
     items,
     contentType,
     fallbackItemImage,
-    view_more_text
+    view_more_text = "Read More",
 }: ContentListProps) {
 
     const component = useRef(null);
@@ -37,7 +38,7 @@ export default function ContentList({
     const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
 
     useEffect (() => {
-        let ctx = gsap.context(() => {
+        const ctx = gsap.context(() => {
             itemsRef.current.forEach((item) => {
                 gsap.fromTo(
                     item,
@@ -71,7 +72,7 @@ export default function ContentList({
 
             const speed = Math.sqrt(Math.pow(mousePos.x - lastMousePos.current.x, 2))
 
-            let ctx = gsap.context(() => {
+            const ctx = gsap.context(() => {
                 if (currentItem !== null) {
                     const maxY = window.scrollY + window.innerHeight - 350;
                     const maxX = window.innerWidth - 250;
@@ -115,7 +116,9 @@ export default function ContentList({
     useEffect (() => {
         contentImages.forEach((url) => {
             const img = new Image();
-            img.src = url
+            if (url) {
+                img.src = url;
+            }
         })
     }, [contentImages])
     
@@ -135,7 +138,7 @@ export default function ContentList({
                     {isFilled.keyText(item.data.title)  && (
                     <li key={index} className='list-item opacity-0f'
                     onMouseEnter={()=> onMouseEnter(index)}
-                    ref={(el) => (itemsRef.current[index] = el)}
+                    ref={(el) => { itemsRef.current[index] = el; }}
                     >
                         <Link href={urlPrefix + "/" + item.uid }
                         className='flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row'
